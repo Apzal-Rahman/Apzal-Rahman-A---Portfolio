@@ -11,6 +11,9 @@ export const ProofAndLearningSection: React.FC = () => {
     return true;
   });
 
+  const MAX_DISPLAY_POSTS = 4;
+  const displayedPosts = filteredPosts.slice(0, MAX_DISPLAY_POSTS);
+
   return (
     <section
       id="proof"
@@ -67,7 +70,7 @@ export const ProofAndLearningSection: React.FC = () => {
                     : 'bg-white text-[#5C564F] hover:text-[#141312] border border-[#EAE4DA]'
                 }`}
               >
-                All Posts ({LINKEDIN_POSTS.length})
+                Featured Posts ({activeFilter === 'all' ? displayedPosts.length : LINKEDIN_POSTS.length})
               </button>
               <button
                 onClick={() => setActiveFilter('weekly')}
@@ -91,9 +94,9 @@ export const ProofAndLearningSection: React.FC = () => {
               </button>
             </div>
 
-            {/* LinkedIn Post Cards Grid - 2 Columns on Mobile, 2 Columns on Desktop */}
+            {/* LinkedIn Post Cards Grid - 2 Columns on Mobile, 2 Columns on Desktop (Max 4 posts) */}
             <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
-              {filteredPosts.map((post) => (
+              {displayedPosts.map((post) => (
                 <div
                   key={post.id}
                   className="bg-white border border-[#EAE4DA] hover:border-[#B38742]/80 p-2.5 sm:p-5 rounded-xl sm:rounded-2xl flex flex-col justify-between transition-all duration-300 group hover:bg-[#FAF8F5] shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-md"
