@@ -21,6 +21,10 @@ export interface CaseStudy {
   title: string;
   fileName?: string;
   oneLineSummary: string;
+  category?: 'performance' | 'creative';
+  challenge?: string;
+  approach?: string;
+  results?: string;
   context: string;
   objective: string;
   theIdea: string;
@@ -79,6 +83,8 @@ export interface CertificationItem {
   category: string;
   year: string;
   skillsGained: string;
+  credentialId?: string;
+  credentialUrl?: string;
 }
 
 export const SELECTED_WORK: ProjectVideo[] = [
@@ -290,6 +296,44 @@ export const CAPABILITIES = [
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
+    id: 'heeds-manufacturing-growth',
+    title: 'MANUFACTURING BRAND — SOCIAL GROWTH CAMPAIGN',
+    oneLineSummary: '5.39M Instagram views · +5,200 YouTube subscribers in 11 days under budget',
+    category: 'performance',
+    challenge: 'TMT manufacturing brand seeking breakthrough non-follower audience reach and aggressive YouTube channel growth without exceeding allocated media budget.',
+    approach: 'Paid amplification of documentary-style content across Instagram + YouTube with precision interest targeting, retention-focused bidding, and budget pacing.',
+    results: '5.39M Instagram views · 99.7% reach to non-followers · +5,200 YouTube subscribers · 53,500 views in 11 days · delivered under budget',
+    context: 'Industrial steel and TMT manufacturing sector where corporate messaging often struggles to achieve viral non-follower organic or paid traction.',
+    objective: 'Drive massive top-of-funnel discovery, scale non-follower reach, and rapidly grow a dedicated YouTube subscriber community within an 11-day campaign sprint.',
+    theIdea: 'Leverage cinematic documentary-style plant and craftsmanship footage to hook industrial buyers and consumers, amplified with disciplined multi-platform paid distribution.',
+    myContribution: 'Performance Marketer — Managed paid campaigns across Meta and Google/YouTube, handled audience segmentation, pacing controls, and campaign performance optimization.',
+    contributionType: 'contributed',
+    scopeNote: 'Paid media architecture, targeting strategy, and budget optimization (creative assets produced in collaboration with team)',
+    teamCollaboration: 'Collaborated closely with creative directors and video production editors for rapid vertical cutdowns and documentary teasers.',
+    whatWasProduced: 'Full Meta (Instagram) and Google/YouTube paid media campaign suite with detailed audience retention telemetry.',
+    publicProof: 'Live verified ad telemetry: 5.39M Instagram views, 99.7% non-follower reach, +5,200 YouTube subscribers within 11 days, retaining unspent budget.',
+    whatILearned: 'Industrial categories achieve unprecedented resonance when framed as documentary human craft rather than traditional spec-sheet advertising.'
+  },
+  {
+    id: 'heeds-healthcare-awareness',
+    title: 'HEALTHCARE BRAND — AWARENESS & LEAD GENERATION',
+    oneLineSummary: '242,000+ reached · 39,771 thruplays · 33 calls · 35 qualified leads under budget',
+    category: 'performance',
+    challenge: 'Sensitive healthcare category requiring widespread public awareness, trust, and patient inquiries without sounding aggressive, clinical, or overselling.',
+    approach: 'Educational content strategy across Meta with empathetic video creative, multi-stage remarketing, click-to-call, and lead generation funnels.',
+    results: '242,000+ people reached · 347,000+ impressions · 39,771 video thruplays · 33 direct calls · 35 qualified leads · cost-efficient delivery',
+    context: 'Regional healthcare provider serving sensitive medical conditions where patients hesitate due to stigma, fear, or misinformation.',
+    objective: 'Demystify medical treatment through empathetic video lessons while delivering direct consultation phone calls and qualified appointment inquiries under budget.',
+    theIdea: 'A calm, dignified educational content strategy addressing patient questions directly, paired with confidential call-now and lead generation funnels.',
+    myContribution: 'Performance Marketer — Planned and executed end-to-end Meta Ads awareness and conversion campaigns, ad copy testing, and call/lead attribution tracking.',
+    contributionType: 'contributed',
+    scopeNote: 'End-to-end campaign architecture, media buying, copy variations, and lead funnel optimization',
+    teamCollaboration: 'Worked closely with medical specialists, compliance leads, and production team to ensure complete clinical dignity.',
+    whatWasProduced: 'Meta video awareness campaign, patient education vignettes, instant lead capture forms, and direct click-to-call assets.',
+    publicProof: 'Verified campaign metrics: 242,000+ people reached, 347,000+ impressions, 39,771 thruplays, 33 direct calls, and 35 qualified leads delivered under budget.',
+    whatILearned: 'In sensitive health categories, genuine education and empathy dismantle friction, converting awareness into high-intent patient inquiries.'
+  },
+  {
     id: 'lalithaa-jewellery',
     title: 'LALITHAA JEWELLERY — TANJORE AI FILM',
     fileName: 'Lalitha Tajore aii.mp4',
@@ -390,37 +434,37 @@ export const CASE_STUDIES: CaseStudy[] = [
 export const EXPERIENCES: ExperienceItem[] = [
   {
     period: 'DEC 2025 — PRESENT',
-    company: 'HEEDS AD TECH SOLUTIONS',
+    company: 'HEEDS',
     role: 'Performance Marketer',
-    description: 'Contribute to performance ad tech initiatives, collaborate on multi-channel campaign architectures, support programmatic growth strategies, review analytics funnels, and develop creative testing frameworks.',
+    description: 'Lead paid media execution across Meta and Google/YouTube for enterprise manufacturing and healthcare accounts, while driving creative marketing ideas, scriptwriting, dialogue, and promotional video production.',
     responsibilities: [
-      'Contribute to programmatic and digital acquisition experiments across channels',
-      'Collaborate with creative design and copy teams to ideate high-converting ad variations',
-      'Support campaign reporting, CPA tracking, and conversion funnel optimization',
-      'Review audience segmentation logic and participate in strategy ideation sessions'
+      'Managed paid campaigns (Meta + Google/YouTube) for TMT manufacturing and healthcare clients — generated 5.39M Instagram views (99.7% reach to non-followers) and grew a YouTube channel by 5,200+ subscribers and 53,500 views within 11 days, while retaining unspent budget',
+      'Drove a healthcare awareness campaign reaching 242,000+ people and 347,000+ impressions in a sensitive category, generating 39,771 video thruplays, 33 direct calls, and 35 qualified leads — all under budget',
+      'Contributed to content writing, scriptwriting, dialogue, and promotional video production for movie-promotion and brand-marketing campaigns',
+      'Supported creative marketing ideas and paid-media creative planning for Meta and Google platforms',
+      'Collaborated with creative and production teams on campaign concepts, from script to final promotional content'
     ]
   },
   {
     period: 'APR 2025 — AUG 2025',
-    company: 'AMBER CREATIVE & DIGITAL SUPPORT',
+    company: 'AMBER CREATIVE AND DIGITAL SUPPORT',
     role: 'Digital Marketing Executive',
-    description: 'Managed paid acquisition across Meta & Google Ads, assisted in client creative briefings, optimized landing pages, and generated performance telemetry.',
+    description: 'Built and optimized WordPress and e-commerce websites, managed Amazon Seller Central with Sponsored Ads, and planned high-performing Meta campaigns.',
     responsibilities: [
-      'Set up and monitored paid social and search campaigns for regional business clients',
-      'Wrote compelling ad copy variants and creative briefs for video editors',
-      'Conducted A/B tests on landing pages to decrease bounce rates and increase lead capture',
-      'Synthesized monthly client performance reports with clear actionable recommendations'
+      'Built and optimized WordPress websites, E-Commerce & business sites',
+      'Managed Amazon Seller Central and executed Sponsored Ads campaigns',
+      'Planned and executed a Meta Ads campaign that achieved 1.16x ROAS in the first week'
     ]
   },
   {
-    period: 'AUG 2024 — FEB 2025',
-    company: 'FREELANCE DIGITAL MARKETING',
-    role: 'Freelancer',
-    description: 'Provided end-to-end digital growth, WordPress website structuring, copy development, and performance marketing for independent enterprises.',
+    period: 'JUL 2024 — FEB 2025',
+    company: 'FREELANCE',
+    role: 'Digital Marketer',
+    description: 'Delivered end-to-end digital growth, paid media acquisition, and web conversion infrastructure for multi-category clients.',
     responsibilities: [
-      'Supported local businesses in launching responsive WordPress websites and optimizing local search SEO',
-      'Managed ad budgets with rigorous focus on high-intent lead generation',
-      'Drafted commercial scripts, promotional video concepts, and social content calendars'
+      'Delivered end-to-end marketing solutions across multiple clients (eCommerce, services, retail)',
+      'Ran Google Ads, Meta Ads campaigns, generating high-quality leads',
+      'Built and optimized WordPress & WooCommerce websites to improve client conversions'
     ]
   },
   {
@@ -436,20 +480,60 @@ export const EXPERIENCES: ExperienceItem[] = [
   }
 ];
 
+export interface SkillCategoryGroup {
+  category: string;
+  skills: string[];
+}
+
+export const SKILL_CATEGORIES: SkillCategoryGroup[] = [
+  {
+    category: 'Content & Creative',
+    skills: ['Scriptwriting', 'Content Writing', 'Promotional Video Concepting', 'Dialogue Writing']
+  },
+  {
+    category: 'Campaign & Coordination',
+    skills: ['Influencer Marketing Coordination', 'Content Calendar Management', 'Cross-team Collaboration (Creative/Production)']
+  },
+  {
+    category: 'Marketing Platforms',
+    skills: ['Meta Business Suite', 'Google Ads', 'Meta Ads', 'YouTube Ads', 'Amazon Sponsored Ads']
+  },
+  {
+    category: 'Tools',
+    skills: ['WordPress', 'WooCommerce', 'Excel', 'SEO']
+  },
+  {
+    category: 'Problem-Solving',
+    skills: ['Ad Account Troubleshooting & Escalation', 'Client Communication']
+  },
+  {
+    category: 'Strategy & Analytics',
+    skills: ['Google Analytics (GA4)', 'Programmatic & DSP', 'Growth Marketing', 'Attribution Modeling']
+  }
+];
+
 export const SKILLS_LIST: string[] = [
+  'SCRIPTWRITING',
+  'CONTENT WRITING',
+  'PROMOTIONAL VIDEO CONCEPTING',
+  'DIALOGUE WRITING',
+  'INFLUENCER MARKETING COORDINATION',
+  'CONTENT CALENDAR MANAGEMENT',
+  'CROSS-TEAM COLLABORATION',
+  'META BUSINESS SUITE',
   'GOOGLE ADS',
   'META ADS',
+  'YOUTUBE ADS',
+  'AMAZON SPONSORED ADS',
   'WORDPRESS',
-  'GOOGLE ANALYTICS',
-  'MARKETING ANALYTICS',
+  'WOOCOMMERCE',
+  'EXCEL',
+  'SEO',
+  'AD ACCOUNT TROUBLESHOOTING & ESCALATION',
+  'CLIENT COMMUNICATION',
+  'GOOGLE ANALYTICS (GA4)',
   'PROGRAMMATIC ADVERTISING',
-  'GROWTH MARKETING',
-  'PAID MEDIA',
-  'CONTENT STRATEGY',
-  'VIDEO COLLABORATION',
-  'HTML',
-  'CSS',
-  'SCRIPTWRITING'
+  'GROWTH MARKETING'
 ];
 
 export const LINKEDIN_POSTS: ProofPost[] = [
@@ -569,36 +653,64 @@ export const LINKEDIN_POSTS: ProofPost[] = [
 
 export const CERTIFICATIONS: CertificationItem[] = [
   {
-    id: 'google-digital',
-    title: 'GOOGLE DIGITAL MARKETING',
-    issuer: 'Google Digital Academy',
-    category: 'Paid Search, Display & Analytics',
-    year: 'Certified',
-    skillsGained: 'Search Ads, Smart Bidding, Measurement & Attribution'
+    id: 'trade-desk-planning',
+    title: 'THE TRADE DESK EDGE ACADEMY CERTIFIED: DATA-DRIVEN PLANNING',
+    issuer: 'The Trade Desk',
+    category: 'Data-Driven Planning & Programmatic Strategy',
+    year: 'Aug 2026',
+    skillsGained: 'Data-driven omnichannel media planning, first-party data onboarding, audience graph design',
+    credentialId: '6c7f8d5f-7d27-45da-b33f-f0bf90a66908',
+    credentialUrl: 'https://www.credly.com/badges/6c7f8d5f-7d27-45da-b33f-f0bf90a66908/public_url'
   },
   {
-    id: 'trade-desk',
-    title: 'THE TRADE DESK',
-    issuer: 'The Trade Desk Edge Academy',
-    category: 'Programmatic Trading & DSP',
-    year: 'Certified',
-    skillsGained: 'Audience Targeting, Real-Time Bidding, Inventory Quality'
+    id: 'trade-desk-essentials',
+    title: 'THE TRADE DESK EDGE ACADEMY – MARKETING ESSENTIALS',
+    issuer: 'The Trade Desk',
+    category: 'Digital Advertising & Ad Tech Fundamentals',
+    year: 'Jul 2026',
+    skillsGained: 'Programmatic ecosystem architecture, RTB mechanics, publisher supply path, auction dynamics',
+    credentialId: '3a4180e2-1b23-40c9-a1f1-bf94eb343460',
+    credentialUrl: 'https://www.credly.com/badges/3a4180e2-1b23-40c9-a1f1-bf94eb343460/public_url'
   },
   {
-    id: 'stackadapt',
-    title: 'STACKADAPT',
-    issuer: 'StackAdapt Academy',
-    category: 'Programmatic & Native Advertising',
-    year: 'Certified',
-    skillsGained: 'Multi-Channel Programmatic, Native Placements, Retargeting'
+    id: 'stackadapt-masterclass',
+    title: 'PROGRAMMATIC MASTERCLASS',
+    issuer: 'StackAdapt',
+    category: 'Multi-Channel DSP & Native Execution',
+    year: 'May 2026',
+    skillsGained: 'Native placements, multi-channel programmatic execution, contextual AI targeting, cross-device attribution',
+    credentialId: '8f8ew7y3o2dc',
+    credentialUrl: 'https://verify.skilljar.com/c/8f8ew7y3o2dc'
   },
   {
-    id: 'data-analytics',
-    title: 'DATA ANALYTICS',
-    issuer: 'Marketing Measurement Institute',
-    category: 'Attribution & Performance Funnels',
-    year: 'Certified',
-    skillsGained: 'Cohort Retention, LTV/CAC Analysis, GA4 Event Schemas'
+    id: 'google-ads-mastery',
+    title: 'GOOGLE ADS MASTERY : CREATE & OPTIMIZE WINNING CAMPAIGNS',
+    issuer: 'LearnKartS (Coursera)',
+    category: 'Paid Search & Campaign Optimization',
+    year: 'Apr 2026',
+    skillsGained: 'Google Ads, Search & Display campaigns, conversion bidding, negative keywords, ad extensions',
+    credentialId: '5JNGSJIAK57I',
+    credentialUrl: 'https://www.coursera.org/account/accomplishments/verify/5JNGSJIAK57I'
+  },
+  {
+    id: 'facebook-ads-course',
+    title: 'FACEBOOK ADS COURSE : GROW LEADS & BOOST SALES',
+    issuer: 'LearnKartS (Coursera)',
+    category: 'Paid Social & Lead Generation',
+    year: 'Jan 2026',
+    skillsGained: 'Meta Ads, competitive analysis, custom & lookalike audiences, lead funnels, sales conversion',
+    credentialId: 'HPJV3I6MNUOE',
+    credentialUrl: 'https://www.coursera.org/account/accomplishments/verify/HPJV3I6MNUOE'
+  },
+  {
+    id: 'google-digital-ecommerce',
+    title: 'GOOGLE DIGITAL MARKETING AND E-COMMERCE PROFESSIONAL CERTIFICATE',
+    issuer: 'Google & Coursera (Credly)',
+    category: 'Digital Marketing & E-Commerce',
+    year: 'Sep 2025',
+    skillsGained: 'E-Commerce, email marketing, marketing analytics, customer journey funnels, store optimization',
+    credentialId: '72a27844-55a4-485d-905f-25523e9d2840',
+    credentialUrl: 'https://www.credly.com/badges/72a27844-55a4-485d-905f-25523e9d2840/linked_in_profile'
   }
 ];
 
@@ -719,9 +831,11 @@ export const WEBSITES: WebsiteItem[] = [
 
 export const BIO_DATA = {
   name: 'APZAL RAHMAN',
-  title: 'PERFORMANCE MARKETER / CREATIVE STRATEGIST',
-  positioning: 'Performance Marketer with a Creative Edge',
+  title: 'PERFORMANCE & CREATIVE MARKETING STRATEGIST',
+  positioning: 'Performance & Creative Marketing Strategist',
+  tagline: 'Performance & Creative Marketing Strategist —',
   headline: 'I turn product truths and business problems into stories people remember.',
+  about: "A marketing professional blending creative storytelling with performance-driven execution — from scriptwriting and content development to running paid campaigns across Meta, Google, and YouTube that have generated millions of views and measurable leads. I combine content that connects with campaigns that convert, and I'm looking to grow as a Performance & Creative Marketing Strategist who can own both the story and the numbers behind it.",
   subtitle: 'Paid media, creative strategy, scriptwriting and digital growth.',
   whatIDoHeading: 'WHAT I DO',
   whatIDoSubhead: 'I connect audience thinking, business goals and memorable ideas.',

@@ -39,8 +39,8 @@ LinkedIn: https://www.linkedin.com/in/apzal-rahman/recent-activity/all/
 GitHub: ${BIO_DATA.gitHubUrl}
 
 PROFESSIONAL POSITIONING:
-Performance Marketer with a Creative Edge
-"I turn product truths and business problems into stories people remember. Paid media, creative strategy, scriptwriting and digital growth."
+Performance & Creative Marketing Strategist —
+"A marketing professional blending creative storytelling with performance-driven execution — from scriptwriting and content development to running paid campaigns across Meta, Google, and YouTube that have generated millions of views and measurable leads. I combine content that connects with campaigns that convert, and I'm looking to grow as a Performance & Creative Marketing Strategist who can own both the story and the numbers behind it."
 
 EXPERIENCE:
 ${EXPERIENCES.map(
@@ -56,7 +56,7 @@ CORE SKILLS:
 ${SKILLS_LIST.join(', ')}
 
 CERTIFICATIONS:
-${CERTIFICATIONS.map((c) => `* ${c.title} - ${c.issuer} (${c.skillsGained})`).join('\n')}
+${CERTIFICATIONS.map((c) => `* ${c.title} (${c.year}) - ${c.issuer}${c.credentialUrl ? ` [Verify: ${c.credentialUrl}]` : ''}\n  Skills: ${c.skillsGained}`).join('\n')}
 
 TEAM STATEMENT:
 Creative work developed with the support of my team.
@@ -133,10 +133,10 @@ Creative work developed with the support of my team.
                 APZAL RAHMAN
               </h1>
               <p className="text-xs tracking-[0.18em] uppercase font-semibold text-[#8C6527] mt-1">
-                PERFORMANCE MARKETER / CREATIVE STRATEGIST
+                PERFORMANCE &amp; CREATIVE MARKETING STRATEGIST —
               </p>
-              <p className="font-editorial italic text-sm text-[#5C564F] mt-2 max-w-lg">
-                “I turn product truths and business problems into stories people remember. Paid media, creative strategy, scriptwriting and digital growth.”
+              <p className="font-editorial italic text-xs sm:text-sm text-[#5C564F] mt-2 max-w-lg leading-relaxed">
+                “A marketing professional blending creative storytelling with performance-driven execution — from scriptwriting and content development to running paid campaigns across Meta, Google, and YouTube.”
               </p>
             </div>
 
@@ -213,10 +213,32 @@ Creative work developed with the support of my team.
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
               {CERTIFICATIONS.map((cert) => (
-                <div key={cert.id} className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs">
-                  <div className="font-bold text-slate-900 tracking-wide uppercase">{cert.title}</div>
-                  <div className="text-amber-700 text-[11px] font-semibold">{cert.issuer}</div>
-                  <div className="text-slate-500 text-[10px] mt-1">{cert.skillsGained}</div>
+                <div key={cert.id} className="p-3 bg-[#FAF8F5] border border-[#EAE4DA] rounded-xl text-xs flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="font-bold text-slate-900 tracking-wide uppercase text-[11px] leading-snug">{cert.title}</div>
+                      <span className="text-[9px] text-[#8C6527] font-semibold bg-white px-1.5 py-0.5 rounded border border-[#D8C7A5] shrink-0">
+                        {cert.year}
+                      </span>
+                    </div>
+                    <div className="text-[#8C6527] text-[11px] font-semibold mt-1">{cert.issuer}</div>
+                    <div className="text-slate-500 text-[10px] mt-1 leading-snug">{cert.skillsGained}</div>
+                  </div>
+                  {cert.credentialUrl && (
+                    <div className="mt-2 pt-1.5 border-t border-[#EAE4DA] flex items-center justify-between text-[10px]">
+                      {cert.credentialId && (
+                        <span className="text-slate-400 font-mono text-[9px]">ID: {cert.credentialId}</span>
+                      )}
+                      <a
+                        href={cert.credentialUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#8C6527] hover:underline font-semibold ml-auto text-[10px]"
+                      >
+                        Verify Credential ↗
+                      </a>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

@@ -37,12 +37,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onResumeClick }) => {
           RAHMAN
         </h1>
 
-        {/* Professional Positioning Tracked Subtitle */}
+        {/* Professional Positioning Tracked Subtitle / Header Tagline */}
         <p 
           id="hero-positioning-tag"
           className="mt-3.5 sm:mt-6 text-[10px] sm:text-sm tracking-[0.16em] sm:tracking-[0.24em] font-semibold text-[#9E783E] uppercase px-2"
         >
-          PERFORMANCE MARKETER / CREATIVE STRATEGIST
+          Performance &amp; Creative Marketing Strategist —
         </p>
 
         {/* Hero Narrative Copy - Editorial Serif Italic */}
@@ -52,6 +52,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onResumeClick }) => {
         >
           “I turn product truths and business problems into stories people remember.”
         </p>
+
+        {/* About / Bio Section */}
+        <div 
+          id="about"
+          className="mt-5 sm:mt-7 max-w-3xl bg-white/80 backdrop-blur-xs border border-[#EAE4DA] rounded-2xl p-4 sm:p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
+        >
+          <div className="flex items-center justify-center gap-2 mb-2.5">
+            <span className="w-1.5 h-1.5 rotate-45 bg-[#9E783E]" />
+            <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-semibold text-[#8C6527]">
+              ABOUT APZAL RAHMAN
+            </span>
+            <span className="w-1.5 h-1.5 rotate-45 bg-[#9E783E]" />
+          </div>
+          <p className="text-xs sm:text-sm md:text-[14.5px] leading-relaxed text-[#4A453F] font-normal">
+            A marketing professional blending creative storytelling with performance-driven execution — from scriptwriting and content development to running paid campaigns across Meta, Google, and YouTube that have generated millions of views and measurable leads. I combine content that connects with campaigns that convert, and I&apos;m looking to grow as a Performance &amp; Creative Marketing Strategist who can own both the story and the numbers behind it.
+          </p>
+        </div>
 
         {/* Subtle decorative diamond divider */}
         <div className="flex items-center gap-2 my-3 sm:my-5 opacity-60">

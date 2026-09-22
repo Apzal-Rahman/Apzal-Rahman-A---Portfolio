@@ -22,12 +22,12 @@ export const CaseStudiesAndExperienceSection: React.FC<CaseStudiesAndExperienceP
         {/* Two-Column Responsive Layout: Case Studies on Left, Experience on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
           
-          {/* LEFT: Creative Case Studies */}
+          {/* LEFT: Creative & Performance Case Studies */}
           <div className="flex flex-col">
             <div className="flex items-center gap-2.5 sm:gap-3 mb-6 sm:mb-8">
               <span className="w-1.5 h-1.5 rotate-45 bg-[#9E783E]" />
               <h2 className="font-serif-heading font-normal text-base sm:text-xl tracking-[0.16em] text-[#141312] uppercase">
-                CREATIVE CASE STUDIES
+                CASE STUDIES &amp; CAMPAIGNS
               </h2>
             </div>
 
@@ -50,11 +50,17 @@ export const CaseStudiesAndExperienceSection: React.FC<CaseStudiesAndExperienceP
                           {study.title}
                         </span>
                         <span className={`px-2 py-0.5 rounded-full text-[9px] tracking-wider uppercase font-semibold border ${
-                          study.contributionType === 'entire-script'
+                          study.category === 'performance'
+                            ? 'border-amber-300 text-amber-900 bg-amber-50'
+                            : study.contributionType === 'entire-script'
                             ? 'border-[#D8C7A5] text-[#8C6527] bg-[#FBF8F2]'
                             : 'border-emerald-200 text-emerald-800 bg-emerald-50/70'
                         }`}>
-                          {study.contributionType === 'entire-script' ? 'Entire Work: Scripting' : 'Contributed with Team'}
+                          {study.category === 'performance' 
+                            ? 'Performance Campaign' 
+                            : study.contributionType === 'entire-script' 
+                            ? 'Entire Work: Scripting' 
+                            : 'Contributed with Team'}
                         </span>
                       </div>
                       {study.fileName && (
@@ -132,6 +138,17 @@ export const CaseStudiesAndExperienceSection: React.FC<CaseStudiesAndExperienceP
                     <p className="text-xs text-[#5C564F] mt-2 leading-relaxed font-normal">
                       {exp.description}
                     </p>
+
+                    {exp.responsibilities && exp.responsibilities.length > 0 && (
+                      <ul className="mt-3 space-y-1.5 border-t border-[#F2ECE1] pt-2.5">
+                        {exp.responsibilities.map((resp, rIdx) => (
+                          <li key={rIdx} className="text-[11px] sm:text-xs text-[#4A453F] flex items-start gap-2 leading-relaxed font-normal">
+                            <span className="w-1 h-1 rounded-full bg-[#9E783E] mt-1.5 shrink-0" />
+                            <span>{resp}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 </div>
               ))}

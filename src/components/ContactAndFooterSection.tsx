@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Linkedin, FileText, Github, Download, Check, Copy } from 'lucide-react';
+import { Mail, Linkedin, FileText, Download, Check, Copy } from 'lucide-react';
 import { BIO_DATA } from '../data/portfolioData';
 
 interface ContactAndFooterSectionProps {
@@ -35,10 +35,10 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
           Open for performance marketing, creative strategy, and narrative collaboration.
         </p>
 
-        {/* 4 Contact Links Grid */}
+        {/* 3 Contact Links Grid */}
         <div 
           id="contact-links-row"
-          className="mt-8 sm:mt-12 max-w-2xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 border border-[#EAE4DA] bg-white p-4 sm:p-6 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
+          className="mt-8 sm:mt-12 max-w-xl mx-auto grid grid-cols-3 gap-3 sm:gap-6 border border-[#EAE4DA] bg-white p-4 sm:p-6 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
         >
           {/* CONTACT / EMAIL */}
           <a
@@ -83,22 +83,6 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
               RESUME
             </span>
           </button>
-
-          {/* GITHUB */}
-          <a
-            href={BIO_DATA.gitHubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            id="footer-github-link"
-            className="group flex flex-col items-center gap-2 p-2.5 sm:p-3 hover:bg-[#FAF8F5] transition-all rounded-xl min-h-[44px] justify-center"
-          >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[#E8DECE] bg-[#FBF8F2] flex items-center justify-center group-hover:border-[#9E783E] group-hover:scale-110 transition-all">
-              <Github className="w-4 h-4 text-[#9E783E]" />
-            </div>
-            <span className="font-serif-heading font-semibold text-xs tracking-wider uppercase text-[#141312] group-hover:text-[#9E783E] transition-colors">
-              GITHUB
-            </span>
-          </a>
         </div>
 
         {/* 1-Click Copy Email Pill */}

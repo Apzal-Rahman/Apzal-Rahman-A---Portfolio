@@ -104,9 +104,48 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ caseStudy, onClo
           </div>
         </div>
 
+        {/* Results Highlight Banner (if present) */}
+        {caseStudy.results && (
+          <div className="mb-6 p-4 rounded-xl bg-[#FBF8F2] border border-[#D8C7A5] text-[#141312]">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="w-2 h-2 rounded-full bg-[#9E783E]" />
+              <span className="text-[10px] tracking-[0.18em] uppercase font-bold text-[#8C6527]">
+                KEY CAMPAIGN RESULTS &amp; METRICS
+              </span>
+            </div>
+            <p className="font-editorial italic text-base sm:text-lg text-[#141312] font-semibold">
+              {caseStudy.results}
+            </p>
+          </div>
+        )}
+
         {/* Structured Sections */}
         <div className="space-y-6 text-sm text-[#4A453F]">
           
+          {/* Challenge (if present) */}
+          {caseStudy.challenge && (
+            <div>
+              <h3 className="text-xs tracking-[0.16em] uppercase font-semibold text-[#141312] flex items-center gap-2 mb-1.5">
+                <Target className="w-3.5 h-3.5 text-[#9E783E]" /> The Challenge
+              </h3>
+              <p className="leading-relaxed bg-[#FAF8F5] p-3.5 rounded-xl border border-[#EAE4DA] text-[#4A453F]">
+                {caseStudy.challenge}
+              </p>
+            </div>
+          )}
+
+          {/* Approach (if present) */}
+          {caseStudy.approach && (
+            <div>
+              <h3 className="text-xs tracking-[0.16em] uppercase font-semibold text-[#141312] flex items-center gap-2 mb-1.5">
+                <Lightbulb className="w-3.5 h-3.5 text-[#9E783E]" /> Strategic Approach
+              </h3>
+              <p className="leading-relaxed bg-[#FAF8F5] p-3.5 rounded-xl border border-[#EAE4DA] text-[#4A453F]">
+                {caseStudy.approach}
+              </p>
+            </div>
+          )}
+
           {/* Context */}
           <div>
             <h3 className="text-xs tracking-[0.16em] uppercase font-semibold text-[#141312] flex items-center gap-2 mb-1.5">

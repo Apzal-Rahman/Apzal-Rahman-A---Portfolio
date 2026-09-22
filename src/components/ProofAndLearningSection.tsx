@@ -214,18 +214,20 @@ export const ProofAndLearningSection: React.FC = () => {
               </span>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-1 gap-2.5 sm:space-y-3.5 sm:gap-0">
+            <div className="grid grid-cols-1 sm:grid-cols-1 gap-2.5 sm:space-y-3.5 sm:gap-0">
               {CERTIFICATIONS.map((cert) => (
                 <div
                   key={cert.id}
-                  className="p-2.5 sm:p-4 bg-white border border-[#EAE4DA] hover:border-[#B38742]/80 rounded-xl sm:rounded-2xl transition-all flex flex-col sm:flex-row items-start gap-2 sm:gap-3.5 group hover:bg-[#FAF8F5] shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
+                  className="p-3 sm:p-4 bg-white border border-[#EAE4DA] hover:border-[#B38742]/80 rounded-xl sm:rounded-2xl transition-all flex flex-col sm:flex-row items-start gap-3 sm:gap-3.5 group hover:bg-[#FAF8F5] shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
                 >
-                  <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[#FBF8F2] border border-[#E8DECE] flex items-center justify-center shrink-0 group-hover:border-[#9E783E] transition-colors">
-                    {cert.id === 'google-digital' ? (
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#FBF8F2] border border-[#E8DECE] flex items-center justify-center shrink-0 group-hover:border-[#9E783E] transition-colors">
+                    {cert.id.includes('google') ? (
                       <span className="font-bold text-xs sm:text-sm text-blue-600">G</span>
-                    ) : cert.id === 'trade-desk' ? (
+                    ) : cert.id.includes('facebook') ? (
+                      <span className="font-bold text-[9px] sm:text-[10px] text-blue-700">Meta</span>
+                    ) : cert.id.startsWith('trade-desk') ? (
                       <span className="font-bold text-[10px] sm:text-xs text-[#8C6527]">TTD</span>
-                    ) : cert.id === 'stackadapt' ? (
+                    ) : cert.id.startsWith('stackadapt') ? (
                       <span className="font-bold text-[10px] sm:text-xs text-[#8C6527]">SA</span>
                     ) : (
                       <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#9E783E]" />
@@ -237,7 +239,12 @@ export const ProofAndLearningSection: React.FC = () => {
                       <h4 className="font-serif-heading font-semibold text-[11px] sm:text-xs tracking-tight sm:tracking-wider uppercase text-[#141312] group-hover:text-[#9E783E] transition-colors truncate">
                         {cert.title}
                       </h4>
-                      <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-600 shrink-0 ml-1" />
+                      <div className="flex items-center gap-1.5 shrink-0 ml-1">
+                        <span className="text-[9px] text-[#8C6527] font-semibold bg-[#FBF8F2] px-1.5 py-0.5 rounded border border-[#D8C7A5]">
+                          {cert.year}
+                        </span>
+                        <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-600" />
+                      </div>
                     </div>
 
                     <p className="text-[9.5px] sm:text-[11px] text-[#9E783E] font-semibold mt-0.5 truncate">
@@ -247,6 +254,28 @@ export const ProofAndLearningSection: React.FC = () => {
                     <p className="text-[9px] sm:text-[10px] text-[#5C564F] mt-1 leading-tight font-normal line-clamp-2 sm:line-clamp-none">
                       {cert.skillsGained}
                     </p>
+
+                    {/* Credential link & verification */}
+                    {(cert.credentialUrl || cert.credentialId) && (
+                      <div className="mt-2 pt-2 border-t border-[#F2ECE1] flex items-center justify-between text-[10px]">
+                        {cert.credentialId && (
+                          <span className="text-[#8C827A] font-mono text-[9px] truncate">
+                            ID: {cert.credentialId}
+                          </span>
+                        )}
+                        {cert.credentialUrl && (
+                          <a
+                            href={cert.credentialUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[#8C6527] hover:text-[#5C2634] font-semibold tracking-wider uppercase ml-auto text-[9.5px] transition-colors"
+                          >
+                            <span>Show Credential</span>
+                            <ExternalLink className="w-2.5 h-2.5" />
+                          </a>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
