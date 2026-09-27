@@ -14,7 +14,7 @@ import { VideoModal } from './components/VideoModal';
 import { WebsiteModal } from './components/WebsiteModal';
 import { ResumeModal } from './components/ResumeModal';
 import { ProjectVideo, CaseStudy, WebsiteItem } from './data/portfolioData';
-import { initGA4, trackEvent } from './utils/analytics';
+import { initGA4, initGTM, trackResumeClick, ResumeLocation } from './utils/analytics';
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState<ProjectVideo | null>(null);
@@ -23,14 +23,21 @@ export default function App() {
   const [resumeOpen, setResumeOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    // Initialize Google Analytics 4 (GA4) with user's Measurement ID
+    // 1. Initialize Google Analytics 4 (GA4) with user's Measurement ID
     const gaId = (import.meta as any).env?.VITE_GA_MEASUREMENT_ID || 'G-3ELF0DKPF1';
     if (gaId) initGA4(gaId);
+
+    // 2. Initialize Google Tag Manager (GTM) if container ID is configured
+    const gtmId = (import.meta as any).env?.VITE_GTM_CONTAINER_ID;
+    if (gtmId) initGTM(gtmId);
   }, []);
 
-  const handleOpenResume = () => {
+  const handleOpenResume = (
+    location: ResumeLocation = 'top_bar',
+    extraMeta?: { buttonId?: string; buttonName?: string }
+  ) => {
     setResumeOpen(true);
-    trackEvent('view_resume_modal', { source: 'portfolio_navigation' });
+    trackResumeClick(location, extraMeta);
   };
 
   return (

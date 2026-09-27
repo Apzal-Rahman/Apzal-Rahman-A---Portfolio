@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Mail, Linkedin, FileText, Download, Check, Copy, Phone, Send, Clock, CheckCircle2, MessageSquare, AlertCircle } from 'lucide-react';
 import { BIO_DATA } from '../data/portfolioData';
-import { trackEvent } from '../utils/analytics';
+import { trackEvent, trackLeadSubmission } from '../utils/analytics';
 
 interface ContactAndFooterSectionProps {
-  onResumeClick: () => void;
+  onResumeClick: (location?: any, meta?: any) => void;
 }
 
 export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = ({ onResumeClick }) => {
@@ -80,6 +80,15 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
         const data = await response.json();
         if (data.success) {
           setSubmitStatus('success');
+          // Fire GA4 Key Event: 'generate_lead' and 'lead_form_submitted'
+          trackLeadSubmission({
+            purpose: formState.purpose,
+            hasPhone: !!formState.phone.trim(),
+            hasEmail: !!formState.email.trim(),
+            preferredTime: formState.preferredTime,
+            source: 'contact_section_web3forms',
+          });
+
           setFormState({
             name: '',
             phone: '',
@@ -88,7 +97,6 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
             preferredTime: 'Anytime',
             message: ''
           });
-          trackEvent('lead_form_submitted', { purpose: formState.purpose });
         } else {
           throw new Error(data.message || 'Submission failed');
         }
@@ -108,7 +116,14 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
         window.location.href = `mailto:${BIO_DATA.email}?subject=${emailSubject}&body=${emailBody}`;
         setSubmitStatus('success');
         setStatusMessage('Opening your email client to send your callback details directly to Apzal.');
-        trackEvent('lead_form_fallback_mailto', { purpose: formState.purpose });
+
+        trackLeadSubmission({
+          purpose: formState.purpose,
+          hasPhone: !!formState.phone.trim(),
+          hasEmail: !!formState.email.trim(),
+          preferredTime: formState.preferredTime,
+          source: 'contact_section_mailto_fallback',
+        });
       }
     } catch (err: any) {
       setSubmitStatus('error');
@@ -384,9 +399,9 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
             </span>
           </a>
 
-          {/* RESUME */}
+          {/* RESUME 3 (Contact Grid) */}
           <button
-            onClick={onResumeClick}
+            onClick={() => onResumeClick('footer_section', { buttonId: 'footer-resume-link', buttonName: 'Resume 3 (Footer Card)' })}
             id="footer-resume-link"
             className="group flex flex-col items-center gap-2 p-2.5 sm:p-3 hover:bg-[#FAF8F5] transition-all rounded-xl cursor-pointer min-h-[44px] justify-center"
           >
@@ -432,10 +447,10 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
           </a>
         </div>
 
-        {/* Strategic Resume Action 3: Quiet footer resume link */}
+        {/* Strategic Resume Action 3: Resume Three - Bottom Footer button */}
         <div className="mt-8">
           <button
-            onClick={onResumeClick}
+            onClick={() => onResumeClick('footer_section', { buttonId: 'footer-quiet-resume-action', buttonName: 'Resume 3 (Bottom Footer Button)' })}
             id="footer-quiet-resume-action"
             className="inline-flex items-center gap-2 text-xs tracking-[0.16em] uppercase font-semibold text-[#8C6527] hover:text-[#73521E] py-2 px-5 border border-[#D8C7A5] bg-[#FBF8F2] hover:bg-[#F5EFE4] rounded-full transition-colors cursor-pointer shadow-xs"
           >

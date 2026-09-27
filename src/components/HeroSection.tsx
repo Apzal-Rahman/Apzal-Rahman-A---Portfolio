@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight, Download } from 'lucide-react';
 
 interface HeroSectionProps {
-  onResumeClick: () => void;
+  onResumeClick: (location?: any, meta?: any) => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onResumeClick }) => {
@@ -122,9 +122,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onResumeClick }) => {
             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#78716A] group-hover:translate-x-1 transition-transform" />
           </a>
 
-          {/* Strategic Resume Action */}
+          {/* Strategic Resume Action: Hero */}
           <button
-            onClick={onResumeClick}
+            onClick={() => onResumeClick('hero_section', { buttonId: 'hero-btn-download-resume', buttonName: 'Resume Hero Action' })}
             id="hero-btn-download-resume"
             className="group inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3.5 bg-[#FBF8F2] hover:bg-[#F5EFE4] text-[#8C6527] border border-[#D8C7A5] text-[11px] sm:text-[13px] tracking-[0.16em] sm:tracking-[0.18em] uppercase font-semibold transition-all duration-200 rounded-full cursor-pointer shadow-xs min-h-[40px] sm:min-h-[44px] w-full sm:w-auto"
           >

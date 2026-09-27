@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 interface NavigationProps {
-  onResumeClick: () => void;
+  onResumeClick: (location?: any, meta?: any) => void;
 }
 
 export const Navigation: React.FC<NavigationProps> = ({ onResumeClick }) => {
@@ -62,7 +62,7 @@ export const Navigation: React.FC<NavigationProps> = ({ onResumeClick }) => {
           ))}
           
           <button
-            onClick={onResumeClick}
+            onClick={() => onResumeClick('top_bar', { buttonId: 'nav-resume-btn-desktop', buttonName: 'Resume 1 (Top Bar Desktop)' })}
             id="nav-resume-btn"
             className="text-[11px] tracking-[0.16em] uppercase font-semibold px-4 py-1.5 border border-[#D8C7A5] bg-[#FBF8F2] text-[#8C6527] hover:bg-[#F5EFE4] transition-all rounded-full cursor-pointer shadow-xs"
           >
@@ -102,7 +102,7 @@ export const Navigation: React.FC<NavigationProps> = ({ onResumeClick }) => {
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                onResumeClick();
+                onResumeClick('top_bar', { buttonId: 'nav-resume-btn-mobile', buttonName: 'Resume 1 (Top Bar Mobile)' });
               }}
               className="mt-3 text-[12px] tracking-[0.16em] uppercase font-semibold py-3 px-5 text-center border border-[#D8C7A5] bg-[#FBF8F2] active:bg-[#F5EFE4] text-[#8C6527] transition-colors rounded-full min-h-[44px] flex items-center justify-center shadow-xs"
             >

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { X, Download, Printer, Mail, Linkedin, Phone, Globe } from 'lucide-react';
 import { BIO_DATA, EXPERIENCES, EDUCATION } from '../data/portfolioData';
+import { trackEvent } from '../utils/analytics';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -27,10 +28,12 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
   if (!isOpen) return null;
 
   const handlePrint = () => {
+    trackEvent('resume_print_pdf', { action: 'print_or_save_pdf' });
     window.print();
   };
 
   const handleDownloadText = () => {
+    trackEvent('resume_download_text', { action: 'download_text_copy' });
     const textContent = `
 APZAL RAHMAN A
 Phone: 7358928968 | Email: ${BIO_DATA.email} | LinkedIn: ${BIO_DATA.linkedInUrl}
