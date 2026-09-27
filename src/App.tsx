@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navigation } from './components/Navigation';
 import { HeroSection } from './components/HeroSection';
 import { FluidSimulationCanvas } from './components/FluidSimulationCanvas';
@@ -14,6 +14,7 @@ import { VideoModal } from './components/VideoModal';
 import { WebsiteModal } from './components/WebsiteModal';
 import { ResumeModal } from './components/ResumeModal';
 import { ProjectVideo, CaseStudy, WebsiteItem } from './data/portfolioData';
+import { initGA4, trackEvent } from './utils/analytics';
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState<ProjectVideo | null>(null);
@@ -21,8 +22,15 @@ export default function App() {
   const [selectedWebsite, setSelectedWebsite] = useState<WebsiteItem | null>(null);
   const [resumeOpen, setResumeOpen] = useState<boolean>(false);
 
+  useEffect(() => {
+    // Initialize Google Analytics 4 (GA4) with user's Measurement ID
+    const gaId = (import.meta as any).env?.VITE_GA_MEASUREMENT_ID || 'G-3ELF0DKPF1';
+    if (gaId) initGA4(gaId);
+  }, []);
+
   const handleOpenResume = () => {
     setResumeOpen(true);
+    trackEvent('view_resume_modal', { source: 'portfolio_navigation' });
   };
 
   return (
@@ -33,24 +41,24 @@ export default function App() {
       {/* Top Fixed Editorial Navigation */}
       <Navigation onResumeClick={handleOpenResume} />
 
-      {/* Main Content Sections in strict sequence matching brief */}
+      {/* Main Content Sections */}
       <main>
         {/* 1. Hero Section with Interactive WebGL Fluid Simulation */}
         <HeroSection onResumeClick={handleOpenResume} />
 
-        {/* 2. Selected Work Section (4 Video Projects) */}
-        <SelectedWorkSection onSelectProject={(p) => setSelectedProject(p)} />
-
-        {/* 3. What I Do Section (8 Capabilities) */}
-        <WhatIDoSection />
-
-        {/* 4. Creative Case Studies & Experience (Two-Column Layout) */}
+        {/* 2. Case Studies & Campaigns (Manufacturing & Healthcare verified results) */}
         <CaseStudiesAndExperienceSection
           onSelectCaseStudy={(cs) => setSelectedCaseStudy(cs)}
           onResumeClick={handleOpenResume}
         />
 
-        {/* 5. Skills Section (Curated Approved Skills List, No Duplicates) */}
+        {/* 3. What I Do Section (8 Capabilities) */}
+        <WhatIDoSection />
+
+        {/* 4. Selected Work Section (Video/Scripting Grid) */}
+        <SelectedWorkSection onSelectProject={(p) => setSelectedProject(p)} />
+
+        {/* 5. Skills Section (Curated Approved Skills List & CRM Troubleshooting Callout) */}
         <SkillsSection />
 
         {/* 6. Proof & Learning (LinkedIn Evidence Cards & Certifications) */}

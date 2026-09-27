@@ -18,9 +18,10 @@ export const Navigation: React.FC<NavigationProps> = ({ onResumeClick }) => {
   }, []);
 
   const navLinks = [
+    { label: 'CASE STUDIES', href: '#case-studies' },
     { label: 'WORK', href: '#work' },
-    { label: 'ABOUT', href: '#about' },
     { label: 'SKILLS', href: '#skills' },
+    { label: 'ABOUT', href: '#about' },
     { label: 'CONTACT', href: '#contact' },
   ];
 

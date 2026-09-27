@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Activity } from 'lucide-react';
 import { SKILLS_LIST, SKILL_CATEGORIES } from '../data/portfolioData';
 
 export const SkillsSection: React.FC = () => {
@@ -23,6 +24,46 @@ export const SkillsSection: React.FC = () => {
             <span className="w-1.5 h-1.5 rotate-45 bg-[#9E783E]" />
           </div>
           <div className="h-[1px] flex-1 max-w-[60px] sm:max-w-[200px] bg-gradient-to-l from-transparent to-[#9E783E]/50" />
+        </div>
+
+        {/* CRM & Tracking Troubleshooting Skill Card Callout */}
+        <div 
+          id="skill-card-crm-troubleshooting"
+          className="mb-8 sm:mb-10 max-w-4xl mx-auto bg-white border border-[#D8C7A5] hover:border-[#9E783E] rounded-2xl p-5 sm:p-7 shadow-[0_4px_24px_rgba(0,0,0,0.02)] transition-all duration-300"
+        >
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex items-start gap-3.5">
+              <div className="w-10 h-10 rounded-xl bg-[#FBF8F2] border border-[#E8DECE] flex items-center justify-center shrink-0 mt-0.5">
+                <Activity className="w-5 h-5 text-[#9E783E]" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-1.5 h-1.5 rotate-45 bg-[#9E783E]" />
+                  <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-bold text-[#8C6527]">
+                    SPECIALIZED COMPETENCY
+                  </span>
+                </div>
+                <h3 className="font-serif-heading font-semibold text-base sm:text-lg tracking-wide uppercase text-[#141312]">
+                  CRM &amp; Tracking Troubleshooting
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-[#4A453F] leading-relaxed font-normal">
+                  Diagnosed and resolved lead-capture failures across SellDo, GA4, and GTM — including duplicate trigger conflicts and CRM integration gaps — ensuring leads flow correctly from ad platform to sales team.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex flex-wrap md:flex-col gap-1.5 shrink-0 pt-3 md:pt-0 border-t md:border-t-0 border-[#EAE4DA] md:items-end">
+              <span className="px-2.5 py-1 bg-[#FAF8F5] border border-[#EAE4DA] rounded-full text-[11px] font-semibold text-[#8C6527]">
+                SellDo CRM
+              </span>
+              <span className="px-2.5 py-1 bg-[#FAF8F5] border border-[#EAE4DA] rounded-full text-[11px] font-semibold text-[#8C6527]">
+                Google Analytics 4
+              </span>
+              <span className="px-2.5 py-1 bg-[#FAF8F5] border border-[#EAE4DA] rounded-full text-[11px] font-semibold text-[#8C6527]">
+                Google Tag Manager
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* View Toggle */}

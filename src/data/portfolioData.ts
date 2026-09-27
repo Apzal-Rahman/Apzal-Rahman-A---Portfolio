@@ -504,7 +504,7 @@ export const SKILL_CATEGORIES: SkillCategoryGroup[] = [
   },
   {
     category: 'Problem-Solving',
-    skills: ['Ad Account Troubleshooting & Escalation', 'Client Communication']
+    skills: ['CRM & Tracking Troubleshooting', 'Ad Account Troubleshooting & Escalation', 'Client Communication']
   },
   {
     category: 'Strategy & Analytics',
@@ -513,6 +513,7 @@ export const SKILL_CATEGORIES: SkillCategoryGroup[] = [
 ];
 
 export const SKILLS_LIST: string[] = [
+  'CRM & TRACKING TROUBLESHOOTING',
   'SCRIPTWRITING',
   'CONTENT WRITING',
   'PROMOTIONAL VIDEO CONCEPTING',

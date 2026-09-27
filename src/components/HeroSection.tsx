@@ -53,6 +53,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onResumeClick }) => {
           “I turn product truths and business problems into stories people remember.”
         </p>
 
+        {/* Supporting Performance Metrics Callout Line */}
+        <p 
+          id="hero-metrics-subline"
+          className="mt-2.5 sm:mt-3 text-xs sm:text-sm md:text-[15px] font-medium text-[#78716A] max-w-2xl text-center px-4 tracking-normal leading-relaxed"
+        >
+          242K+ people reached, 35 qualified leads, 5.39M views, 5,200+ subscribers gained — performance marketing backed by creative execution.
+        </p>
+
         {/* About / Bio Section */}
         <div 
           id="about"
@@ -68,6 +76,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onResumeClick }) => {
           <p className="text-xs sm:text-sm md:text-[14.5px] leading-relaxed text-[#4A453F] font-normal">
             A marketing professional blending creative storytelling with performance-driven execution — from scriptwriting and content development to running paid campaigns across Meta, Google, and YouTube that have generated millions of views and measurable leads. I combine content that connects with campaigns that convert, and I&apos;m looking to grow as a Performance &amp; Creative Marketing Strategist who can own both the story and the numbers behind it.
           </p>
+          
+          {/* Relocation / Availability Line */}
+          <div className="mt-3.5 pt-3 border-t border-[#EAE4DA]/70 flex items-center justify-center gap-2 text-xs sm:text-[13px] font-medium text-[#4B1F2A]">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+            <span>Open to relocating — actively exploring opportunities in the UAE (Dubai).</span>
+          </div>
         </div>
 
         {/* Subtle decorative diamond divider */}
