@@ -9,6 +9,7 @@ interface ContactAndFooterSectionProps {
 
 export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = ({ onResumeClick }) => {
   const [copied, setCopied] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
 
   // Form State
   const [formState, setFormState] = useState({
@@ -27,6 +28,12 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
     navigator.clipboard.writeText(BIO_DATA.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
+  };
+
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText(BIO_DATA.phone);
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2500);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -313,7 +320,7 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
                 </button>
 
                 <a
-                  href={`https://wa.me/918129777977?text=${encodeURIComponent("Hi Apzal, I reviewed your portfolio and would like to connect with you.")}`}
+                  href={`https://wa.me/917358928968?text=${encodeURIComponent("Hi Apzal, I reviewed your portfolio and would like to connect with you.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-semibold tracking-wider uppercase rounded-xl transition-all cursor-pointer"
@@ -326,10 +333,10 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
           )}
         </div>
 
-        {/* 3 Contact Links Grid */}
+        {/* 4 Contact Links Grid */}
         <div 
           id="contact-links-row"
-          className="mt-8 sm:mt-12 max-w-xl mx-auto grid grid-cols-3 gap-3 sm:gap-6 border border-[#EAE4DA] bg-white p-4 sm:p-6 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
+          className="mt-8 sm:mt-12 max-w-2xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 border border-[#EAE4DA] bg-white p-4 sm:p-6 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
         >
           {/* CONTACT / EMAIL */}
           <a
@@ -341,7 +348,23 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
               <Mail className="w-4 h-4 text-[#9E783E]" />
             </div>
             <span className="font-serif-heading font-semibold text-xs tracking-wider uppercase text-[#141312] group-hover:text-[#9E783E] transition-colors">
-              CONTACT
+              EMAIL
+            </span>
+          </a>
+
+          {/* WHATSAPP */}
+          <a
+            href="https://wa.me/917358928968"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="footer-whatsapp-link"
+            className="group flex flex-col items-center gap-2 p-2.5 sm:p-3 hover:bg-[#FAF8F5] transition-all rounded-xl min-h-[44px] justify-center"
+          >
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-emerald-200 bg-emerald-50/70 flex items-center justify-center group-hover:border-emerald-500 group-hover:scale-110 transition-all">
+              <MessageSquare className="w-4 h-4 text-emerald-600" />
+            </div>
+            <span className="font-serif-heading font-semibold text-xs tracking-wider uppercase text-[#141312] group-hover:text-emerald-700 transition-colors">
+              WHATSAPP
             </span>
           </a>
 
@@ -376,8 +399,9 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
           </button>
         </div>
 
-        {/* 1-Click Copy Email Pill */}
-        <div className="mt-8 flex items-center justify-center">
+        {/* 1-Click Copy & Quick Contact Pills */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          {/* Email Copy Pill */}
           <button
             onClick={handleCopyEmail}
             className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 bg-[#FBF8F2] hover:bg-[#F5EFE4] border border-[#D8C7A5] rounded-full text-xs text-[#141312] transition-all cursor-pointer shadow-xs min-h-[44px]"
@@ -394,6 +418,18 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
               </>
             )}
           </button>
+
+          {/* WhatsApp / Phone Pill */}
+          <a
+            href="https://wa.me/917358928968"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 bg-emerald-50/60 hover:bg-emerald-100/70 border border-emerald-200 rounded-full text-xs text-[#141312] transition-all cursor-pointer shadow-xs min-h-[44px]"
+          >
+            <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+            <span className="font-medium text-emerald-950">+91 73589 28968</span>
+            <span className="text-[10px] text-emerald-700 bg-white/70 px-1.5 py-0.5 rounded font-semibold uppercase">Chat</span>
+          </a>
         </div>
 
         {/* Strategic Resume Action 3: Quiet footer resume link */}

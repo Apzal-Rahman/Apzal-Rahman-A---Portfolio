@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { X, Download, Printer, Mail, Linkedin } from 'lucide-react';
-import { BIO_DATA, EXPERIENCES, SKILLS_LIST, CERTIFICATIONS } from '../data/portfolioData';
+import { X, Download, Printer, Mail, Linkedin, Phone, Globe } from 'lucide-react';
+import { BIO_DATA, EXPERIENCES, EDUCATION } from '../data/portfolioData';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -32,41 +32,57 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
   const handleDownloadText = () => {
     const textContent = `
-APZAL RAHMAN
-Performance Marketer / Creative Strategist
-Email: ${BIO_DATA.email}
-LinkedIn: https://www.linkedin.com/in/apzal-rahman/recent-activity/all/
-GitHub: ${BIO_DATA.gitHubUrl}
+APZAL RAHMAN A
+Phone: 7358928968 | Email: ${BIO_DATA.email} | LinkedIn: ${BIO_DATA.linkedInUrl}
 
-PROFESSIONAL POSITIONING:
-Performance & Creative Marketing Strategist —
-"A marketing professional blending creative storytelling with performance-driven execution — from scriptwriting and content development to running paid campaigns across Meta, Google, and YouTube that have generated millions of views and measurable leads. I combine content that connects with campaigns that convert, and I'm looking to grow as a Performance & Creative Marketing Strategist who can own both the story and the numbers behind it."
+CAREER OBJECTIVE
+A marketing professional blending creative storytelling with performance-driven execution — from scriptwriting and content development to running paid campaigns across Meta, Google, and YouTube that have generated millions of views and measurable leads. I combine content that connects with campaigns that convert, and I'm looking to grow as a Performance & Creative Marketing Strategist who can own both the story and the numbers behind it.
 
-EXPERIENCE:
-${EXPERIENCES.map(
-  (e) => `
-* ${e.company} | ${e.role} (${e.period})
-  ${e.description}
-  Key Responsibilities:
-  ${e.responsibilities.map((r) => `  - ${r}`).join('\n')}
-`
-).join('\n')}
+EDUCATION
+Nehru Arts and Science College                                       CGPA: 7.3/10.0
+Bachelor of Commerce in Computer Application                        Jun. 2021 – May. 2024
+Rasakondalar Matric Hr Sec School                                   Percentage: 78.9
+XII Std                                                             June. 2020 - April. 2021
 
-CORE SKILLS:
-${SKILLS_LIST.join(', ')}
+EXPERIENCE
+Performance Marketer                                                Dec. 2025 – Present
+Heeds                                                               Chennai, IN
+• Managed paid campaigns (Meta + Google/YouTube) for TMT manufacturing and healthcare clients, generated 5.39M Instagram views (99.7% reach to non-followers) and grew a YouTube channel by 5,200+ subscribers and 53,500 views within 11 days, while retaining unspent budget
+• Drove a healthcare awareness campaign reaching 242,000+ people and 347,000+ impressions in a sensitive category, generating 39,771 video thruplays, 33 direct calls, and 35 qualified leads — all under budget
+• Contributed to content writing, scriptwriting, dialogue, and promotional video production for movie-promotion and brand-marketing campaigns
+• Supported the development of creative marketing ideas and paid-media creative planning for Meta and Google platforms
+• Collaborated with creative and production teams on campaign concepts, from script to final promotional content
 
-CERTIFICATIONS:
-${CERTIFICATIONS.map((c) => `* ${c.title} (${c.year}) - ${c.issuer}${c.credentialUrl ? ` [Verify: ${c.credentialUrl}]` : ''}\n  Skills: ${c.skillsGained}`).join('\n')}
+Digital Marketing Executive                                         Apr. 2025 – Aug. 2025
+Amber Creative and Digital Support                                  Coimbatore, IN
+• Built and optimized WordPress websites, E-Commerce & business sites
+• Managed Amazon Seller Central and executed Sponsored Ads campaigns
+• Planned and executed Meta Ads campaign that achieved 1.16x ROAS in the first week
 
-TEAM STATEMENT:
-Creative work developed with the support of my team.
+Digital Marketer                                                    Jul. 2024 – Feb. 2025
+Freelance                                                           Remote
+• Delivered end-to-end marketing solutions across multiple clients (eCommerce, services, retail)
+• Ran Google Ads, Meta Ads campaigns, generating high-quality leads
+• Built and optimized WordPress & WooCommerce websites to improve client conversions
+
+CERTIFICATIONS
+The Trade Desk Edge Academy Certified: Data-Driven Planning | The Trade Desk        Aug. 2026
+The Trade Desk Edge Academy – Marketing Essentials | The Trade Desk                 Jul. 2026
+Programmatic Masterclass | StackAdapt                                              May. 2026
+
+SKILLS
+Tools: WordPress, WooCommerce, Excel, SEO..
+Content & Creative: Scriptwriting, Content Writing, Promotional Video Concepting, Dialogue Writing..
+Campaign & Coordination: Influencer Marketing Coordination, Content Calendar Management, Cross-team Collaboration (Creative/Production)..
+Marketing Platforms: Meta Business Suite, Google Ads, Meta Ads, YouTube Ads, Amazon Sponsored Ads..
+Problem-Solving: Ad Account Troubleshooting & Escalation, Client Communication..
 `.trim();
 
     const blob = new Blob([textContent], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'Apzal-Rahman-Resume.txt';
+    a.download = 'Apzal-Rahman-A-Resume.txt';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -75,39 +91,39 @@ Creative work developed with the support of my team.
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-900/60 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6 bg-slate-900/70 backdrop-blur-sm animate-fadeIn"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="resume-modal-title"
     >
       <div 
-        className="bg-white border border-slate-200 rounded-2xl max-w-3xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden"
+        className="bg-white border border-[#EAE4DA] rounded-2xl max-w-4xl w-full max-h-[94vh] flex flex-col shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Controls Header */}
-        <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-[#EAE4DA] bg-[#FAF8F5]">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-[#EAE4DA] bg-[#FAF8F5] shrink-0">
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rotate-45 bg-[#9E783E]" />
-            <h2 id="resume-modal-title" className="font-serif-heading font-semibold text-[11px] sm:text-sm tracking-[0.14em] sm:tracking-[0.18em] uppercase text-[#141312]">
-              APZAL RAHMAN — CV
+            <span className="w-2 h-2 rounded-full bg-[#9E783E]" />
+            <h2 id="resume-modal-title" className="font-serif-heading font-semibold text-xs sm:text-sm tracking-[0.16em] uppercase text-[#141312]">
+              Official Resume — Apzal Rahman A
             </h2>
           </div>
 
-          <div className="flex items-center gap-1.5 sm:gap-2">
+          <div className="flex items-center gap-2">
             <button
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 bg-white hover:bg-[#FAF8F5] border border-[#D8C7A5] text-[#141312] text-xs uppercase tracking-wider rounded-full transition-colors cursor-pointer font-medium min-h-[36px]"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-[#FAF8F5] border border-[#D8C7A5] text-[#141312] text-xs uppercase tracking-wider rounded-lg transition-colors cursor-pointer font-medium"
               title="Print or Save as PDF"
             >
               <Printer className="w-3.5 h-3.5 text-[#9E783E]" />
-              <span className="hidden sm:inline">Print / PDF</span>
+              <span className="hidden sm:inline">Print / Save PDF</span>
             </button>
 
             <button
               onClick={handleDownloadText}
-              className="inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-3.5 py-1.5 bg-[#4B1F2A] hover:bg-[#5C2634] text-[#FAF8F5] text-xs uppercase tracking-wider font-semibold rounded-full transition-colors cursor-pointer shadow-xs min-h-[36px]"
-              title="Download Resume Data"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#141312] hover:bg-[#2C2722] text-[#FAF8F5] text-xs uppercase tracking-wider font-semibold rounded-lg transition-colors cursor-pointer shadow-xs"
+              title="Download text copy"
             >
               <Download className="w-3.5 h-3.5 text-[#D8C7A5]" />
               <span>Download</span>
@@ -115,7 +131,7 @@ Creative work developed with the support of my team.
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-full text-[#78716A] hover:text-[#141312] bg-[#FAF8F5] hover:bg-[#F0EBE1] transition-colors ml-1 sm:ml-2 cursor-pointer min-w-[36px] min-h-[36px] flex items-center justify-center"
+              className="p-1.5 rounded-lg text-[#78716A] hover:text-[#141312] hover:bg-[#EAE4DA]/60 transition-colors cursor-pointer"
               aria-label="Close"
             >
               <X className="w-5 h-5" />
@@ -123,130 +139,152 @@ Creative work developed with the support of my team.
           </div>
         </div>
 
-        {/* Scrollable Printable Resume Sheet */}
-        <div ref={resumeRef} className="p-4 sm:p-10 overflow-y-auto bg-white text-[#2E2A26] space-y-6 sm:space-y-8 print:bg-white print:text-black">
-          
+        {/* Scrollable Printable Resume Sheet (Replicating exact uploaded layout) */}
+        <div 
+          ref={resumeRef} 
+          className="p-6 sm:p-12 overflow-y-auto bg-white text-[#111111] font-serif leading-normal print:p-0 print:bg-white print:text-black selection:bg-neutral-200"
+          style={{ fontFamily: "'Times New Roman', Times, Georgia, serif" }}
+        >
           {/* Header */}
-          <div className="border-b border-[#EAE4DA] pb-6 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center sm:items-start gap-4">
-            <div>
-              <h1 className="font-serif-heading font-normal text-3xl sm:text-4xl tracking-tight uppercase text-[#141312]">
-                APZAL RAHMAN
-              </h1>
-              <p className="text-xs tracking-[0.18em] uppercase font-semibold text-[#8C6527] mt-1">
-                PERFORMANCE &amp; CREATIVE MARKETING STRATEGIST —
-              </p>
-              <p className="font-editorial italic text-xs sm:text-sm text-[#5C564F] mt-2 max-w-lg leading-relaxed">
-                “A marketing professional blending creative storytelling with performance-driven execution — from scriptwriting and content development to running paid campaigns across Meta, Google, and YouTube.”
-              </p>
-            </div>
-
-            <div className="text-xs text-[#5C564F] space-y-1.5 text-center sm:text-right shrink-0">
-              <p className="flex items-center sm:justify-end gap-1.5">
-                <Mail className="w-3.5 h-3.5 text-[#9E783E]" />
-                <a href={`mailto:${BIO_DATA.email}`} className="hover:text-[#9E783E]">{BIO_DATA.email}</a>
-              </p>
-              <p className="flex items-center sm:justify-end gap-1.5">
-                <Linkedin className="w-3.5 h-3.5 text-[#9E783E]" />
-                <a href="https://www.linkedin.com/in/apzal-rahman/recent-activity/all/" target="_blank" rel="noopener noreferrer" className="hover:text-[#9E783E]">linkedin.com/in/apzal-rahman</a>
-              </p>
-              <p className="text-[11px] text-[#8C6527] font-medium">
-                Erode & Chennai, Tamil Nadu, India
-              </p>
+          <div className="text-center pb-4">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-wide uppercase text-black">
+              Apzal Rahman A
+            </h1>
+            <div className="mt-2 text-xs sm:text-[13px] text-[#222222] flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+              <a href="tel:7358928968" className="hover:underline flex items-center gap-1">
+                <Phone className="w-3 h-3 inline" /> 7358928968
+              </a>
+              <span>•</span>
+              <a href="#hero" onClick={onClose} className="hover:underline flex items-center gap-1">
+                <Globe className="w-3 h-3 inline" /> Portfolio
+              </a>
+              <span>•</span>
+              <a href={BIO_DATA.linkedInUrl} target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-1">
+                <Linkedin className="w-3 h-3 inline" /> LinkedIn
+              </a>
+              <span>•</span>
+              <a href={`mailto:${BIO_DATA.email}`} className="hover:underline flex items-center gap-1">
+                <Mail className="w-3 h-3 inline" /> {BIO_DATA.email}
+              </a>
             </div>
           </div>
 
-          {/* Experience Section */}
-          <div>
-            <h2 className="text-xs tracking-[0.18em] uppercase font-semibold text-[#8C6527] border-b border-[#EAE4DA] pb-1.5 mb-4">
-              EXPERIENCE
+          {/* CAREER OBJECTIVE */}
+          <section className="mt-4">
+            <h2 className="text-[13px] sm:text-sm font-bold tracking-wider uppercase text-black border-b border-black pb-0.5 mb-2">
+              Career Objective
             </h2>
+            <p className="text-xs sm:text-[12.5px] leading-relaxed text-[#111111] text-justify">
+              A marketing professional blending creative storytelling with performance-driven execution — from
+              scriptwriting and content development to running paid campaigns across Meta, Google, and YouTube
+              that have generated millions of views and measurable leads. I combine content that connects with
+              campaigns that convert, and I’m looking to grow as a Performance &amp; Creative Marketing Strategist
+              who can own both the story and the numbers behind it.
+            </p>
+          </section>
 
-            <div className="space-y-6">
+          {/* EDUCATION */}
+          <section className="mt-5">
+            <h2 className="text-[13px] sm:text-sm font-bold tracking-wider uppercase text-black border-b border-black pb-0.5 mb-2">
+              Education
+            </h2>
+            <div className="space-y-2 text-xs sm:text-[12.5px]">
+              {EDUCATION.map((edu, idx) => (
+                <div key={idx}>
+                  <div className="flex justify-between items-baseline font-bold text-black">
+                    <span>{edu.institution}</span>
+                    <span className="font-normal text-[#222222]">{edu.score}</span>
+                  </div>
+                  <div className="flex justify-between items-baseline italic text-[#222222]">
+                    <span>{edu.degree}</span>
+                    <span className="not-italic text-[11px] sm:text-xs text-[#444444]">{edu.period}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* EXPERIENCE */}
+          <section className="mt-5">
+            <h2 className="text-[13px] sm:text-sm font-bold tracking-wider uppercase text-black border-b border-black pb-0.5 mb-2">
+              Experience
+            </h2>
+            <div className="space-y-4">
               {EXPERIENCES.map((exp, idx) => (
-                <div key={idx} className="space-y-1.5">
-                  <div className="flex flex-wrap justify-between items-baseline gap-2">
-                    <span className="font-serif-heading font-semibold text-sm text-[#141312] uppercase tracking-wide">
-                      {exp.company}
-                    </span>
-                    <span className="text-[11px] tracking-wider text-[#9E783E] font-semibold uppercase">
-                      {exp.period}
-                    </span>
+                <div key={idx} className="text-xs sm:text-[12.5px]">
+                  <div className="flex justify-between items-baseline font-bold text-black">
+                    <span>{exp.role}</span>
+                    <span className="font-normal text-[#333333] text-[11px] sm:text-xs">{exp.period}</span>
                   </div>
-                  <div className="text-xs font-semibold text-[#8C6527] tracking-wide uppercase">
-                    {exp.role}
+                  <div className="flex justify-between items-baseline italic text-[#222222] mb-1">
+                    <span>{exp.company}</span>
+                    {exp.location && <span className="not-italic text-[11px] text-[#444444]">{exp.location}</span>}
                   </div>
-                  <p className="text-xs text-[#5C564F] leading-relaxed">
-                    {exp.description}
-                  </p>
-                  <ul className="list-disc list-inside text-xs text-slate-600 space-y-1 pl-1 pt-1">
-                    {exp.responsibilities.map((r, i) => (
-                      <li key={i}>{r}</li>
+                  <ul className="list-disc ml-5 space-y-1 text-[#111111] leading-relaxed text-[11.5px] sm:text-[12px]">
+                    {exp.responsibilities.map((r, rIdx) => (
+                      <li key={rIdx}>{r}</li>
                     ))}
                   </ul>
                 </div>
               ))}
             </div>
+          </section>
 
-            <p className="mt-4 text-[11px] text-slate-500 italic border-l-2 border-amber-500 pl-3">
-              {BIO_DATA.teamStatement}
-            </p>
-          </div>
-
-          {/* Core Competencies / Skills */}
-          <div>
-            <h2 className="text-xs tracking-[0.16em] uppercase font-bold text-amber-800 border-b border-slate-200 pb-1.5 mb-3">
-              CORE COMPETENCIES & SKILLS
+          {/* CERTIFICATIONS */}
+          <section className="mt-5">
+            <h2 className="text-[13px] sm:text-sm font-bold tracking-wider uppercase text-black border-b border-black pb-0.5 mb-2">
+              Certifications
             </h2>
-            <div className="flex flex-wrap gap-2 pt-1">
-              {SKILLS_LIST.map((skill, i) => (
-                <span key={i} className="text-[11px] px-3 py-1 bg-slate-50 border border-slate-200 text-slate-800 font-medium tracking-wide uppercase rounded-md">
-                  {skill}
+            <div className="space-y-1.5 text-xs sm:text-[12px] text-[#111111]">
+              <div className="flex justify-between items-baseline">
+                <span>
+                  <span className="font-semibold">The Trade Desk Edge Academy Certified: Data-Driven Planning</span> | The Trade Desk
                 </span>
-              ))}
+                <span className="text-[11px] text-[#444444] shrink-0 ml-2">Aug. 2026</span>
+              </div>
+              <div className="flex justify-between items-baseline">
+                <span>
+                  <span className="font-semibold">The Trade Desk Edge Academy – Marketing Essentials</span> | The Trade Desk
+                </span>
+                <span className="text-[11px] text-[#444444] shrink-0 ml-2">Jul. 2026</span>
+              </div>
+              <div className="flex justify-between items-baseline">
+                <span>
+                  <span className="font-semibold">Programmatic Masterclass</span> | StackAdapt
+                </span>
+                <span className="text-[11px] text-[#444444] shrink-0 ml-2">May. 2026</span>
+              </div>
             </div>
-          </div>
+          </section>
 
-          {/* Certifications */}
-          <div>
-            <h2 className="text-xs tracking-[0.16em] uppercase font-bold text-amber-800 border-b border-slate-200 pb-1.5 mb-3">
-              CERTIFICATIONS & ACCREDITATIONS
+          {/* SKILLS */}
+          <section className="mt-5">
+            <h2 className="text-[13px] sm:text-sm font-bold tracking-wider uppercase text-black border-b border-black pb-0.5 mb-2">
+              Skills
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-              {CERTIFICATIONS.map((cert) => (
-                <div key={cert.id} className="p-3 bg-[#FAF8F5] border border-[#EAE4DA] rounded-xl text-xs flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="font-bold text-slate-900 tracking-wide uppercase text-[11px] leading-snug">{cert.title}</div>
-                      <span className="text-[9px] text-[#8C6527] font-semibold bg-white px-1.5 py-0.5 rounded border border-[#D8C7A5] shrink-0">
-                        {cert.year}
-                      </span>
-                    </div>
-                    <div className="text-[#8C6527] text-[11px] font-semibold mt-1">{cert.issuer}</div>
-                    <div className="text-slate-500 text-[10px] mt-1 leading-snug">{cert.skillsGained}</div>
-                  </div>
-                  {cert.credentialUrl && (
-                    <div className="mt-2 pt-1.5 border-t border-[#EAE4DA] flex items-center justify-between text-[10px]">
-                      {cert.credentialId && (
-                        <span className="text-slate-400 font-mono text-[9px]">ID: {cert.credentialId}</span>
-                      )}
-                      <a
-                        href={cert.credentialUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#8C6527] hover:underline font-semibold ml-auto text-[10px]"
-                      >
-                        Verify Credential ↗
-                      </a>
-                    </div>
-                  )}
-                </div>
-              ))}
+            <div className="space-y-1 text-xs sm:text-[12px] leading-relaxed text-[#111111]">
+              <p>
+                <span className="font-bold">Tools:</span> WordPress, WooCommerce, Excel, SEO..
+              </p>
+              <p>
+                <span className="font-bold">Content &amp; Creative:</span> Scriptwriting, Content Writing, Promotional Video Concepting, Dialogue Writing..
+              </p>
+              <p>
+                <span className="font-bold">Campaign &amp; Coordination:</span> Influencer Marketing Coordination, Content Calendar Management, Cross-team Collaboration (Creative/Production)..
+              </p>
+              <p>
+                <span className="font-bold">Marketing Platforms:</span> Meta Business Suite, Google Ads, Meta Ads, YouTube Ads, Amazon Sponsored Ads..
+              </p>
+              <p>
+                <span className="font-bold">Problem-Solving:</span> Ad Account Troubleshooting &amp; Escalation, Client Communication..
+              </p>
             </div>
-          </div>
+          </section>
 
         </div>
       </div>
     </div>
   );
 };
+
 

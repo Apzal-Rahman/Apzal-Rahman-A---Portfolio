@@ -41,9 +41,17 @@ export interface CaseStudy {
 export interface ExperienceItem {
   period: string;
   company: string;
+  location?: string;
   role: string;
   description: string;
   responsibilities: string[];
+}
+
+export interface EducationItem {
+  institution: string;
+  degree: string;
+  period: string;
+  score: string;
 }
 
 export interface WebsiteItem {
@@ -431,51 +439,58 @@ export const CASE_STUDIES: CaseStudy[] = [
   }
 ];
 
+export const EDUCATION: EducationItem[] = [
+  {
+    institution: 'Nehru Arts and Science College',
+    degree: 'Bachelor of Commerce in Computer Application',
+    period: 'Jun. 2021 – May. 2024',
+    score: 'CGPA: 7.3/10.0'
+  },
+  {
+    institution: 'Rasakondalar Matric Hr Sec School',
+    degree: 'XII Std',
+    period: 'June. 2020 - April. 2021',
+    score: 'Percentage: 78.9'
+  }
+];
+
 export const EXPERIENCES: ExperienceItem[] = [
   {
-    period: 'DEC 2025 — PRESENT',
-    company: 'HEEDS',
+    period: 'Dec. 2025 – Present',
+    company: 'Heeds',
+    location: 'Chennai, IN',
     role: 'Performance Marketer',
-    description: 'Lead paid media execution across Meta and Google/YouTube for enterprise manufacturing and healthcare accounts, while driving creative marketing ideas, scriptwriting, dialogue, and promotional video production.',
+    description: 'Managed paid campaigns (Meta + Google/YouTube) for TMT manufacturing and healthcare clients, generated 5.39M Instagram views (99.7% reach to non-followers) and grew a YouTube channel by 5,200+ subscribers and 53,500 views within 11 days, while retaining unspent budget.',
     responsibilities: [
-      'Managed paid campaigns (Meta + Google/YouTube) for TMT manufacturing and healthcare clients — generated 5.39M Instagram views (99.7% reach to non-followers) and grew a YouTube channel by 5,200+ subscribers and 53,500 views within 11 days, while retaining unspent budget',
+      'Managed paid campaigns (Meta + Google/YouTube) for TMT manufacturing and healthcare clients, generated 5.39M Instagram views (99.7% reach to non-followers) and grew a YouTube channel by 5,200+ subscribers and 53,500 views within 11 days, while retaining unspent budget',
       'Drove a healthcare awareness campaign reaching 242,000+ people and 347,000+ impressions in a sensitive category, generating 39,771 video thruplays, 33 direct calls, and 35 qualified leads — all under budget',
       'Contributed to content writing, scriptwriting, dialogue, and promotional video production for movie-promotion and brand-marketing campaigns',
-      'Supported creative marketing ideas and paid-media creative planning for Meta and Google platforms',
+      'Supported the development of creative marketing ideas and paid-media creative planning for Meta and Google platforms',
       'Collaborated with creative and production teams on campaign concepts, from script to final promotional content'
     ]
   },
   {
-    period: 'APR 2025 — AUG 2025',
-    company: 'AMBER CREATIVE AND DIGITAL SUPPORT',
+    period: 'Apr. 2025 – Aug. 2025',
+    company: 'Amber Creative and Digital Support',
+    location: 'Coimbatore, IN',
     role: 'Digital Marketing Executive',
-    description: 'Built and optimized WordPress and e-commerce websites, managed Amazon Seller Central with Sponsored Ads, and planned high-performing Meta campaigns.',
+    description: 'Built and optimized WordPress websites, E-Commerce & business sites; managed Amazon Seller Central and executed Sponsored Ads campaigns; planned and executed Meta Ads campaign that achieved 1.16x ROAS in week 1.',
     responsibilities: [
       'Built and optimized WordPress websites, E-Commerce & business sites',
       'Managed Amazon Seller Central and executed Sponsored Ads campaigns',
-      'Planned and executed a Meta Ads campaign that achieved 1.16x ROAS in the first week'
+      'Planned and executed Meta Ads campaign that achieved 1.16x ROAS in the first week'
     ]
   },
   {
-    period: 'JUL 2024 — FEB 2025',
-    company: 'FREELANCE',
+    period: 'Jul. 2024 – Feb. 2025',
+    company: 'Freelance',
+    location: 'Remote',
     role: 'Digital Marketer',
-    description: 'Delivered end-to-end digital growth, paid media acquisition, and web conversion infrastructure for multi-category clients.',
+    description: 'Delivered end-to-end marketing solutions across multiple clients (eCommerce, services, retail), running Google Ads, Meta Ads campaigns and optimizing conversion rates.',
     responsibilities: [
       'Delivered end-to-end marketing solutions across multiple clients (eCommerce, services, retail)',
       'Ran Google Ads, Meta Ads campaigns, generating high-quality leads',
       'Built and optimized WordPress & WooCommerce websites to improve client conversions'
-    ]
-  },
-  {
-    period: 'JAN 2022 — JAN 2023',
-    company: 'AMAZON',
-    role: 'Fulfillment Center Associate',
-    description: 'Executed high-speed inventory processing, quality assurance, fulfillment metrics, and standard operating procedures.',
-    responsibilities: [
-      'Maintained peak fulfillment accuracy under stringent operational timeframes',
-      'Followed strict inventory safety protocols and continuous process improvement routines',
-      'Developed deep operational discipline and appreciation for high-throughput supply chains'
     ]
   }
 ];
@@ -845,7 +860,11 @@ export const BIO_DATA = {
   contactHeadline: "LET'S BUILD SOMETHING PEOPLE REMEMBER.",
   footerLine: 'PERFORMANCE MARKETING WITH A CREATIVE EDGE.',
   email: 'apzalrahman@gmail.com',
+  phone: '+91 73589 28968',
+  phoneRaw: '7358928968',
+  whatsAppUrl: 'https://wa.me/917358928968',
   linkedInUrl: 'https://www.linkedin.com/in/apzal-rahman/',
   gitHubUrl: 'https://github.com/apzal-rahman',
   driveFolderUrl: 'https://drive.google.com/drive/folders/1MwVH-thKBf10g9onRp7_pN1CacNQC5X3'
 };
+
