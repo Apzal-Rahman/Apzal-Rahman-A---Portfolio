@@ -16,7 +16,7 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
     name: '',
     phone: '',
     email: '',
-    purpose: 'Performance Marketing',
+    purpose: 'Interview / Hiring Opportunity',
     preferredTime: 'Anytime',
     message: ''
   });
@@ -93,7 +93,7 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
             name: '',
             phone: '',
             email: '',
-            purpose: 'Performance Marketing',
+            purpose: 'Interview / Hiring Opportunity',
             preferredTime: 'Anytime',
             message: ''
           });
@@ -267,13 +267,12 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
                     name="purpose"
                     value={formState.purpose}
                     onChange={handleInputChange}
-                    className="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#EAE4DA] rounded-lg text-sm text-[#141312] focus:outline-none focus:border-[#9E783E] focus:bg-white transition-all"
+                    className="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#EAE4DA] rounded-lg text-sm text-[#141312] focus:outline-none focus:border-[#9E783E] focus:bg-white transition-all cursor-pointer"
                   >
-                    <option value="Performance Marketing & Paid Media">Performance Marketing & Paid Media</option>
-                    <option value="UAE / Dubai Relocation Opportunity">UAE / Dubai Role Opportunity</option>
-                    <option value="Creative Strategy & Video Scripts">Creative Strategy & Video Scripts</option>
-                    <option value="Tracking & CRM Troubleshooting">Tracking & CRM Troubleshooting</option>
-                    <option value="General Consultation / Other">General Consultation / Other</option>
+                    <option value="Interview / Hiring Opportunity">Interview / Hiring Opportunity</option>
+                    <option value="Marketing Services & Projects">Marketing Services & Projects</option>
+                    <option value="Consulting & Strategy">Consulting & Strategy</option>
+                    <option value="General Inquiry">General Inquiry</option>
                   </select>
                 </div>
               </div>
