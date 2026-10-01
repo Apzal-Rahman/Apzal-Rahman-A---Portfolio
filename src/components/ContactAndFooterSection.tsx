@@ -153,12 +153,6 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
           Open for performance marketing, creative strategy, and narrative collaboration.
         </p>
 
-        {/* Relocation / Availability Badge */}
-        <div className="mt-3 sm:mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50/80 border border-emerald-200/80 text-[11px] sm:text-xs font-medium text-emerald-800">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-          <span>Open to relocating — actively exploring opportunities in the UAE (Dubai).</span>
-        </div>
-
         {/* Lead Capture / Request Callback Form Card */}
         <div className="mt-10 sm:mt-14 max-w-2xl mx-auto text-left bg-white border border-[#E8DECE] rounded-2xl p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.03)]">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-[#EAE4DA]">
