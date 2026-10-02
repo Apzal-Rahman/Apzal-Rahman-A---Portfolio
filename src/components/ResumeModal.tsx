@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { X, Download, Printer, Mail, Linkedin, Phone, Globe } from 'lucide-react';
 import { BIO_DATA, EXPERIENCES, EDUCATION } from '../data/portfolioData';
 import { trackEvent } from '../utils/analytics';
+import { downloadResumePDF } from '../utils/pdfGenerator';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -32,64 +33,9 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
     window.print();
   };
 
-  const handleDownloadText = () => {
-    trackEvent('resume_download_text', { action: 'download_text_copy' });
-    const textContent = `
-APZAL RAHMAN A
-Phone: 7358928968 | Email: ${BIO_DATA.email} | LinkedIn: ${BIO_DATA.linkedInUrl}
-
-CAREER OBJECTIVE
-A marketing professional blending creative storytelling with performance-driven execution — from scriptwriting and content development to running paid campaigns across Meta, Google, and YouTube that have generated millions of views and measurable leads. I combine content that connects with campaigns that convert, and I'm looking to grow as a Performance & Creative Marketing Strategist who can own both the story and the numbers behind it.
-
-EDUCATION
-Nehru Arts and Science College                                       CGPA: 7.3/10.0
-Bachelor of Commerce in Computer Application                        Jun. 2021 – May. 2024
-Rasakondalar Matric Hr Sec School                                   Percentage: 78.9
-XII Std                                                             June. 2020 - April. 2021
-
-EXPERIENCE
-Performance Marketer                                                Dec. 2025 – Present
-Heeds                                                               Chennai, IN
-• Managed paid campaigns (Meta + Google/YouTube) for TMT manufacturing and healthcare clients, generated 5.39M Instagram views (99.7% reach to non-followers) and grew a YouTube channel by 5,200+ subscribers and 53,500 views within 11 days, while retaining unspent budget
-• Drove a healthcare awareness campaign reaching 242,000+ people and 347,000+ impressions in a sensitive category, generating 39,771 video thruplays, 33 direct calls, and 35 qualified leads — all under budget
-• Contributed to content writing, scriptwriting, dialogue, and promotional video production for movie-promotion and brand-marketing campaigns
-• Supported the development of creative marketing ideas and paid-media creative planning for Meta and Google platforms
-• Collaborated with creative and production teams on campaign concepts, from script to final promotional content
-
-Digital Marketing Executive                                         Apr. 2025 – Aug. 2025
-Amber Creative and Digital Support                                  Coimbatore, IN
-• Built and optimized WordPress websites, E-Commerce & business sites
-• Managed Amazon Seller Central and executed Sponsored Ads campaigns
-• Planned and executed Meta Ads campaign that achieved 1.16x ROAS in the first week
-
-Digital Marketer                                                    Jul. 2024 – Feb. 2025
-Freelance                                                           Remote
-• Delivered end-to-end marketing solutions across multiple clients (eCommerce, services, retail)
-• Ran Google Ads, Meta Ads campaigns, generating high-quality leads
-• Built and optimized WordPress & WooCommerce websites to improve client conversions
-
-CERTIFICATIONS
-The Trade Desk Edge Academy Certified: Data-Driven Planning | The Trade Desk        Aug. 2026
-The Trade Desk Edge Academy – Marketing Essentials | The Trade Desk                 Jul. 2026
-Programmatic Masterclass | StackAdapt                                              May. 2026
-
-SKILLS
-Tools: WordPress, WooCommerce, Excel, SEO..
-Content & Creative: Scriptwriting, Content Writing, Promotional Video Concepting, Dialogue Writing..
-Campaign & Coordination: Influencer Marketing Coordination, Content Calendar Management, Cross-team Collaboration (Creative/Production)..
-Marketing Platforms: Meta Business Suite, Google Ads, Meta Ads, YouTube Ads, Amazon Sponsored Ads..
-Problem-Solving: Ad Account Troubleshooting & Escalation, Client Communication..
-`.trim();
-
-    const blob = new Blob([textContent], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'Apzal-Rahman-A-Resume.txt';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+  const handleDownloadPDF = async () => {
+    trackEvent('resume_download_pdf', { action: 'download_pdf_document' });
+    await downloadResumePDF();
   };
 
   return (
@@ -124,12 +70,12 @@ Problem-Solving: Ad Account Troubleshooting & Escalation, Client Communication..
             </button>
 
             <button
-              onClick={handleDownloadText}
+              onClick={handleDownloadPDF}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#141312] hover:bg-[#2C2722] text-[#FAF8F5] text-xs uppercase tracking-wider font-semibold rounded-lg transition-colors cursor-pointer shadow-xs"
-              title="Download text copy"
+              title="Download PDF Resume"
             >
               <Download className="w-3.5 h-3.5 text-[#D8C7A5]" />
-              <span>Download</span>
+              <span>Download PDF</span>
             </button>
 
             <button
