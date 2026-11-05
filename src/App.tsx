@@ -3,6 +3,7 @@ import { Navigation } from './components/Navigation';
 import { HeroSection } from './components/HeroSection';
 import { FluidSimulationCanvas } from './components/FluidSimulationCanvas';
 import { SelectedWorkSection } from './components/SelectedWorkSection';
+import { CreativeConceptsSection } from './components/CreativeConceptsSection';
 import { WhatIDoSection } from './components/WhatIDoSection';
 import { CaseStudiesAndExperienceSection } from './components/CaseStudiesAndExperienceSection';
 import { SkillsSection } from './components/SkillsSection';
@@ -64,6 +65,9 @@ export default function App() {
 
         {/* 4. Selected Work Section (Video/Scripting Grid) */}
         <SelectedWorkSection onSelectProject={(p) => setSelectedProject(p)} />
+
+        {/* Creative Concepts Section (Super Singer 12: The Judges Visual Directions) */}
+        <CreativeConceptsSection />
 
         {/* 5. Skills Section (Curated Approved Skills List & CRM Troubleshooting Callout) */}
         <SkillsSection />
