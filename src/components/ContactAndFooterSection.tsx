@@ -154,7 +154,10 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
         </p>
 
         {/* Lead Capture / Request Callback Form Card */}
-        <div className="mt-10 sm:mt-14 max-w-2xl mx-auto text-left bg-white border border-[#E8DECE] rounded-2xl p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.03)]">
+        <div 
+          id="callback-form-card"
+          className="mt-10 sm:mt-14 max-w-2xl mx-auto text-left bg-white border border-[#E8DECE] rounded-2xl p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.03)] transition-all duration-500"
+        >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-[#EAE4DA]">
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#9E783E]">
@@ -442,14 +445,16 @@ export const ContactAndFooterSection: React.FC<ContactAndFooterSectionProps> = (
 
         {/* Strategic Resume Action 3: Resume Three - Bottom Footer button */}
         <div className="mt-8">
-          <button
+          <a
+            href="/Apzal-Rahman-A-Resume.pdf"
+            download="Apzal-Rahman-A-Resume.pdf"
             onClick={() => onResumeClick('footer_section', { buttonId: 'footer-quiet-resume-action', buttonName: 'Resume 3 (Bottom Footer Button)' })}
             id="footer-quiet-resume-action"
             className="inline-flex items-center gap-2 text-xs tracking-[0.16em] uppercase font-semibold text-[#8C6527] hover:text-[#73521E] py-2 px-5 border border-[#D8C7A5] bg-[#FBF8F2] hover:bg-[#F5EFE4] rounded-full transition-colors cursor-pointer shadow-xs"
           >
             <span>DOWNLOAD RESUME</span>
             <Download className="w-3.5 h-3.5" />
-          </button>
+          </a>
         </div>
 
         {/* Footer Signature Line */}

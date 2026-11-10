@@ -117,14 +117,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onResumeClick }) => {
           </a>
 
           {/* Strategic Resume Action: Hero */}
-          <button
+          <a
+            href="/Apzal-Rahman-A-Resume.pdf"
+            download="Apzal-Rahman-A-Resume.pdf"
             onClick={() => onResumeClick('hero_section', { buttonId: 'hero-btn-download-resume', buttonName: 'Resume Hero Action' })}
             id="hero-btn-download-resume"
             className="group inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3.5 bg-[#FBF8F2] hover:bg-[#F5EFE4] text-[#8C6527] border border-[#D8C7A5] text-[11px] sm:text-[13px] tracking-[0.16em] sm:tracking-[0.18em] uppercase font-semibold transition-all duration-200 rounded-full cursor-pointer shadow-xs min-h-[40px] sm:min-h-[44px] w-full sm:w-auto"
           >
             <span>DOWNLOAD RESUME</span>
             <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#9E783E] group-hover:translate-y-0.5 transition-transform" />
-          </button>
+          </a>
         </div>
 
       </div>

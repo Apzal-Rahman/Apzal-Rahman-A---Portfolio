@@ -103,14 +103,16 @@ export const CaseStudiesAndExperienceSection: React.FC<CaseStudiesAndExperienceP
               </div>
 
               {/* Strategic Resume Action 2: Resume Two (Experience Area) */}
-              <button
+              <a
+                href="/Apzal-Rahman-A-Resume.pdf"
+                download="Apzal-Rahman-A-Resume.pdf"
                 onClick={() => onResumeClick('experience_section', { buttonId: 'experience-resume-btn', buttonName: 'Resume 2 (Experience Area)' })}
                 id="experience-resume-btn"
                 className="self-start sm:self-auto inline-flex items-center gap-1.5 text-[11px] tracking-[0.16em] uppercase font-semibold text-[#8C6527] hover:text-[#73521E] py-2 sm:py-1.5 px-4 sm:px-3.5 border border-[#D8C7A5] bg-[#FBF8F2] hover:bg-[#F5EFE4] rounded-full transition-colors cursor-pointer shadow-xs min-h-[38px]"
               >
                 <span>DOWNLOAD RESUME</span>
                 <Download className="w-3.5 h-3.5" />
-              </button>
+              </a>
             </div>
 
             {/* Vertical Timeline */}

@@ -99,7 +99,9 @@ export const Navigation: React.FC<NavigationProps> = ({ onResumeClick }) => {
                 <span className="w-1.5 h-1.5 rotate-45 bg-[#9E783E]/50" />
               </a>
             ))}
-            <button
+            <a
+              href="/Apzal-Rahman-A-Resume.pdf"
+              download="Apzal-Rahman-A-Resume.pdf"
               onClick={() => {
                 setMobileMenuOpen(false);
                 onResumeClick('top_bar', { buttonId: 'nav-resume-btn-mobile', buttonName: 'Resume 1 (Top Bar Mobile)' });
@@ -107,7 +109,7 @@ export const Navigation: React.FC<NavigationProps> = ({ onResumeClick }) => {
               className="mt-3 text-[12px] tracking-[0.16em] uppercase font-semibold py-3 px-5 text-center border border-[#D8C7A5] bg-[#FBF8F2] active:bg-[#F5EFE4] text-[#8C6527] transition-colors rounded-full min-h-[44px] flex items-center justify-center shadow-xs"
             >
               Download Resume
-            </button>
+            </a>
           </div>
         </div>
       )}

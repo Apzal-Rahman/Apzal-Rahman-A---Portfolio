@@ -10,6 +10,7 @@ import { SkillsSection } from './components/SkillsSection';
 import { ProofAndLearningSection } from './components/ProofAndLearningSection';
 import { AllWebsitesSection } from './components/AllWebsitesSection';
 import { ContactAndFooterSection } from './components/ContactAndFooterSection';
+import { FloatingContactButton } from './components/FloatingContactButton';
 import { CaseStudyModal } from './components/CaseStudyModal';
 import { VideoModal } from './components/VideoModal';
 import { WebsiteModal } from './components/WebsiteModal';
@@ -81,6 +82,9 @@ export default function App() {
 
       {/* 8. Contact and Editorial Footer */}
       <ContactAndFooterSection onResumeClick={handleOpenResume} />
+
+      {/* Floating Quick Contact / Request Callback Widget in Bottom-Right */}
+      <FloatingContactButton />
 
       {/* Interactive Detail Modals */}
       <CaseStudyModal

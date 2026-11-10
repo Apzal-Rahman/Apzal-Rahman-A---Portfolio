@@ -456,7 +456,7 @@ export const EDUCATION: EducationItem[] = [
 
 export const EXPERIENCES: ExperienceItem[] = [
   {
-    period: 'Dec. 2025 – Present',
+    period: 'Dec. 2025 – Nov. 2026',
     company: 'Heeds',
     location: 'Chennai, IN',
     role: 'Performance Marketer',

@@ -3,24 +3,34 @@ import { BIO_DATA } from '../data/portfolioData';
 
 export async function downloadResumePDF() {
   const fileName = 'Apzal-Rahman-A-Resume.pdf';
+  const candidateUrls = [
+    '/Apzal-Rahman-A-Resume.pdf',
+    '/assets/aistudio/Apzal_Rahman_A_c3f74c71.pdf',
+    '/Apzal_Rahman_A.pdf',
+    '/Apzal-Rahman-Resume.pdf'
+  ];
 
-  // 1. Primary approach: fetch the pre-compiled static PDF asset
-  try {
-    const res = await fetch(`/${fileName}`);
-    if (res.ok) {
-      const blob = await res.blob();
-      const blobUrl = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = blobUrl;
-      a.download = fileName;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
-      return;
+  // 1. Primary approach: fetch the authentic static PDF asset
+  for (const url of candidateUrls) {
+    try {
+      const res = await fetch(url);
+      if (res.ok) {
+        const blob = await res.blob();
+        if (blob.size > 20000) {
+          const blobUrl = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = blobUrl;
+          a.download = fileName;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+          return;
+        }
+      }
+    } catch {
+      // try next candidate
     }
-  } catch (error) {
-    console.warn('Static PDF fetch encountered error, using client generator:', error);
   }
 
   // 2. Client-side vector fallback using jsPDF
@@ -113,7 +123,7 @@ export async function downloadResumePDF() {
     const experiences = [
       {
         role: 'Performance Marketer',
-        dates: 'Dec. 2025 – Present',
+        dates: 'Dec. 2025 – Nov. 2026',
         company: 'Heeds',
         location: 'Chennai, IN',
         bullets: [
